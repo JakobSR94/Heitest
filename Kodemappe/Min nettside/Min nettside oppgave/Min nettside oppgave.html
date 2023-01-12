@@ -9,8 +9,10 @@
 </head>
 
 <body>
-  <h1>Velkommen til min nettside</h1>
-  <h2>Hei, jeg heter Jakob Solås</h2>
+  <h1 style="text-align: center;">Velkommen til min nettside</h1>
+  </Br>
+
+  <h2 style="text-align:">Hei, jeg heter Jakob Solås</h2>
   <h3>Litt om meg</h3>
   <h4>Er glad i familie og gode venner!</h4>
   <h5>Mine hobbyer i stikkord</h5>
@@ -20,8 +22,28 @@
   <li>Danse</li>
   <li>Sosial</li>
   <li>Gledespreder</li>
-  <img src="2a.jpg" width="200" height="250">
+  <img src="2a.jpg" width="160" height="215"> <br>
   <button id="Klikkmeg">Klikkmeg</button>
+  <br>
+  <br>
+  <button id="myButton">Bytte farge automatisk</button>
+
+  <script>
+    document.getElementById("myButton").onclick = function () {
+      setInterval(function () {
+        document.body.style.backgroundColor = getRandomColor();
+      }, 1000);
+    };
+
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
   <script>
     const button = document.getElementById('Klikkmeg');
 
