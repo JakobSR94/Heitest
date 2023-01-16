@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding:0%;
+            margin:0%;
+        }
+    </style>
+</head>
+
+<body>  
+<div id="mainDiv">InnerHTML</div>
+    <button onclick="Simba('yellow',25,100)">Min1</button>
+    <button onclick="Simba('black',50,200)">Min2</button>
+
+    <script>
+        function Simba(color,width,height)
+        {
+        document.getElementById('mainDiv').innerHTML=`
+        <div style="background-color:${color}; width: ${width}%; height:${height}px; "><div>
+            `; 
+        }
+
+    </script>
+</body>
+</html>
