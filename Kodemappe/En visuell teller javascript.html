@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lage en visuell teller med javascript</title>
+</head>
+
+<body>
+    <p>
+        <button onclick="totalClick(1)">+</button>
+        <span id="totalClicks">0</span>
+        <button onclick="totalClick(-1)">-</button>
+    </p>
+    <button onclick="totalClick(0)">Reset</button>
+
+    <script>
+        // Lagt inn funksjon når man trykker + så plusser den.
+        function totalClick(click) {
+            const totalClicks = document.getElementById('totalClicks');
+            const sumvalue = parseInt(totalClicks.innerText) + click;
+            console.log(sumvalue + click);
+            totalClicks.innerText = sumvalue;
+
+            //Unngå negative tall 
+            if (sumvalue < 0) {
+                totalClicks.innerText = 0;
+            }
+
+            // reset verdi
+            if (click===0){
+                totalClicks.innerText = 0;
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>
