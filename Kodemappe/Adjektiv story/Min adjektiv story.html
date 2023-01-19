@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Lag din egen fortelling - Ordvelger </title>
+    <style>
+        div {
+            float: left;
+            margin: 25px;
+            margin-top: auto;
+        }
+
+        .storyBox {
+            border: 2px dashed pink;
+            padding: 30px;
+            font-size: 25px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .startRow {
+            clear: left;
+        }
+
+        .choiceBoxes {
+            font-size: 25px;
+            background-color: lightseagreen;
+            border: 2px solid cornflowerblue;
+            border-radius: 50%;
+            padding: 30px;
+            width: 70px;
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="storyBox" id="storyOutput">
+
+    </div>
+    <div class="startRow choiceBoxes" onclick="chooseFirstWord(this)">Grønn</div>
+    <div class="choiceBoxes" onclick="ChooseFirstword(this)">hund</div>
+
+    <div class="StartRow choiceBoxes" onclick="chooseSecondWord(this)">Gris</div>
+    <div class="choiceBoxes" onclick="ChooseFirstword(this)">Mann</div>
+
+    <div class="StartRow choiceBoxes" onclick="chooseThirdWord(this)">Glanet</div>
+    <div class="choiceBoxes" onclick="ChooseFirstword(this)">Danset</div>
+
+    <div class="StartRow choiceBoxes" onclick="chooseFourthWord(this)">Elven</div>
+    <div class="choiceBoxes" onclick="ChooseFourthhword(this)">Himmel</div>
+
+    <script>
+        const output = document.getElementById("storyOutput");
+        let firstWord ="___";
+        let secondword ="___";
+        let thirdword ="___";
+        let fourhword ="___";
+        let fifthword ="___";
+        buildstory();
+
+        function buildstory() {
+            output.innerHTML = 
+            `En gang, det var en ${firstword} ${secondword} 
+            ``som ${thirdword} gikk med ${fourthword} 
+            - og endte opp lykkelig. God slutt.
+            `;
+            // output.innerHTML = ` En gang, det var en ' + førstord '+''+ andreord ' + 
+            // Som ' + tredjeord ' +gikk med ' + fjerdeord ' + og endte opp lykkelig. God slutt  
+        }
+
+        function chooseFirstWord(choice) {
+            firstWord = choice.innerHTML;
+            buildstory();
+
+        }
+
+        function chooseSecondWord(choice) {
+            secondWord = choice.innerHTML;
+            buildstory();
+
+        }
+
+        function chooseThirdWord(choice) {
+            thirdword = choice.innerHTML;
+            buildstory();
+
+        }
+        function chooseFourthWord(choice) {
+            fourthword = choice.innerHTML;
+            buildstory();
+
+        }
+    </script>
+</body>
+
+</html>

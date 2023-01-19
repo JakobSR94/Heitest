@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let & Var Scopes</title>
+</head>
+
+<body>
+    <script>
+        const test1 = "hei"; // Const = Konstant verdi kan ikke endres.. Som kan brukes til mangt for eks en sti til en div?
+        let test2 = "heisann" // Let kan endres - Let er bare tilgjengelig i sit område/Scope
+        var test3  ="håihåi!"; // Var kan endres og er i større grad tilgjengelig i større Scope
+
+        function testScopes() {
+            var hello = "Var Hello";
+            let hello2 = "Let Hello";
+
+            console.log(hello, hello2); //  Var Hello & Let Hello
+
+            {
+                var yo = "Var Yo i obj"
+                let yo2 = "Let Yo i obj"; 
+                console.log(yo,yo2);   // var yo & let yo
+
+            }
+
+            console.log(yo); // var yo
+            console.log(yo2); // error! let får man bare tak i, i samme scope her er den pakket inn i et objekt og "gjemt bort" :D
+
+        }
+        testscopes();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Your Own Story - Wordchooser</title>
+    <style>
+        html{
+           background-color: rgb(239, 122, 19); 
+        }
+        .storyBox {
+            border: 10px dashed rgb(0, 0, 0);
+            padding: 30px;
+            font-size: 25px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Tahoma, Geneva, Verdana, sans-serif, Geneva, Tahoma, sans-serif;
+        }
+        div {
+           margin: 20px; 
+           text-align: center;
+           font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="storyBox" id="storyOutput">
+    </div>
+    <div class="startRow choiceBoxes" onclick="chooseFirstWord(this)">prins</div>
+    <div class="choiceBoxes" onclick="chooseFirstWord(this)">prinsesse</div>
+
+    <div class="startRow choiceBoxes" onclick="chooseSecondWord(this)">motivert</div>
+    <div class="choiceBoxes" onclick="chooseSecondWord(this)">sterk</div>
+
+    <div class="startRow choiceBoxes" onclick="chooseThirdWord(this)">morsom</div>
+    
+
+    <div class="startRow choiceBoxes" onclick="chooseFourthWord(this)">snill</div>
+    
+
+    <script>
+        const output = document.getElementById("storyOutput");
+        let firstWord = "___";
+        let secondWord = "___";
+        let thirdWord = "___";
+        let fourthWord = "___";
+        buildStory();
+
+        function buildStory() {
+            output.innerHTML = `
+        Det var en gang, en ${firstWord} som var ${secondWord} og ${thirdWord} som fant lykken sin med å være ${fourthWord} -
+        til sin store kjærlighet, men så var det snipp snapp ute, så var denne svært korte eventyret ute! :)
+        `;
+
+        }
+
+        function chooseFirstWord(choice) {
+            firstWord = choice.innerHTML;
+            buildStory();
+        }
+
+        function chooseSecondWord(choice) {
+            secondWord = choice.innerHTML;
+            buildStory();
+        }
+
+        function chooseThirdWord(choice) {
+            thirdWord = choice.innerHTML;
+            buildStory();
+        }
+
+        function chooseFourthWord(choice) {
+            fourthWord = choice.innerHTML;
+            buildStory();
+        }
+
+
+    </script>
+</body>
+
+</html>

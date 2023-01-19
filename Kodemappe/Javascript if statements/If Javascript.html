@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"> xlms="https://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        Ferdighet 3 - spesialtilfelle, this og gjøre noe med det elementet man trykker
+        Sammenlign dette eksemplet med Ferdighet 2 -Onclick - kjøre funksjon som ender
+    </p>
+    <h2 id="Z" onclick="doSomething(this)">AAAAAAAA</h2>
+    <h2 id="y" onclick="doSomething(this)">BBBBBBBB</h2>
+    <script>
+        function doSomething(YESSIR) {
+            // Nå er YESSIR det samme som om vi hadde kjørt:
+            //var YESSIR = Document.getElementById('Z');
+            // Eller
+            //var YESSIR = Document.getElementById('Y');
+            // HVIS og bare hvis du trykker på akkuratt det elementet som har id=Z;
+            YESSIR.innerHTML = 'CCCCCCCCCCCCCCC';
+        }
+    </script>
+</body>
+
+</html>
