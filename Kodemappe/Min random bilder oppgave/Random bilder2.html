@@ -11,8 +11,16 @@
 <body style="background-color:rgb(0, 0, 0);"></body>
 </div>
 </head>
-<h1 style="color:white">
-    Team - 4 Panda </h1>
+
+<h1 style="font-size: 90px; color:white">
+    
+    Welcome to Team Panda </h1>
+<div class="container">
+    <div class="box" onclick="showPic(this, 1)"><img id="image_1" class="box" src="P1.png"></div>
+    <div class="box" onclick="showPic(this, 2)"><img id="image_2" class="box" src="P2.png"></div>
+    <div class="box" onclick="showPic(this, 3)"><img id="image_3" class="box" src="P3.png"></div>
+</div>
+
 <style>
     h1 {
         text-align: center;
@@ -20,44 +28,81 @@
 </style>
 
 <body>
-    <img id="P1.png" onclick="addDyrPicWithThis('P1.png','500px')" class="shadow" />
-    <img id="P2.png" onclick="addDyrPicWithThis('P2.png','500px')" class="shadow" />
-    <img id="P3.png" onclick="addDyrPicWithThis('P3.png','500px')" class="shadow" />
     <script>
-        function getPicIfElse() {
-            let mynumber = Math.ceil(Math.random() * 3);
-            console.log(mynumber)
-            if (mynumber === 1) {
-                return 'P1.png';
-            }
-            else if (mynumber === 2) {
-                return 'P2.png';
-            }
-            else {
-                return 'P3.png';
+        const Panda1 = "P1.png"
+        const Panda2 = "P2.png"
+        const Panda3 = "P3.png"
+
+        function showPic(img, index) {
+            let random = Math.random();
+            random = Math.floor(random * 3);
+            if (random == 0) {
+                img.innerHTML = "<img id=\"image_" + index + "\" class=\"box\" src=\"" + Panda1 + "\">";
+            } else if (random == 1) {
+                img.innerHTML = "<img id=\"image_" + index + "\" class=\"box\" src=\"" + Panda2 + "\">";
+            } else if (random == 2) {
+                img.innerHTML = "<img id=\"image_" + index + "\" class=\"box\" src=\"" + Panda3 + "\">";
             }
         }
-        function addDyrPicWithThis(elem) { /*sender inn html element*/
-            console.log(elem)
-            elem.src = 'P2.png';
-        }
-        function addDyrPicWithThis(pictureid, height,) // sender med id (string) 
-        {
-            let picResult = getPicIfElse();
-            document.getElementById(pictureid).src = picResult;
-            document.getElementById(pictureid).style.height = height;
+        function bildeNavn() {
+            let image_1 = document.getElementById("image_1")
+            let image_2 = document.getElementById("image_2")
+            let image_3 = document.getElementById("image_3")
+            let navn = document.getElementById("navn")
+
+            navn.innerHTML = ""
+
+            if (image_1) {
+                navn.innerHTML = image_1.getAttribute("src") + "<br>"
+            }
+            if (image_2) {
+                navn.innerHTML += image_2.getAttribute("src") + "<br>"
+            }
+            if (image_3) {
+                navn.innerHTML += image_3.getAttribute("src") + "<br>"
+            }
         }
     </script>
     <style>
         .shadow {
-            display: inline-flexbox margin: 150px;
             padding: 35px;
-            height: 500px;
-            width: 500px;
+            height: 300px;
+            width: 300px;
             color: rgb(0, 0, 0);
             background-color: rgb(10, 9, 7)
         }
+
+        * {
+        }
+
+        body {
+            background-color: rgb(255, 255, 255);
+
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .box {
+            height: 350px;
+            width: 350px;
+            background-color: rgb(255, 255, 255);
+            border: 10px solid rgb(0, 0, 0);
+        }
+
+        .btn {
+            margin: 10px
+        }
+
+        .text{
+            text-align: center;
+            color: rgb(30, 27, 65);
     </style>
 </body>
-
 </html>
