@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=viewport content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>Document</title>
+
+<body style="background-color:rgb(0, 0, 0);"></body>  
+</div>
+</head>
+<h1 style="color:white">
+    Jakob fra Team4 Panda</h1>
+<style>
+h1{
+    text-align: center;
+
+}
+</style>
+
+
+<body>
+    <img id="P1.png" onclick="addDyrPicWithThis('P1.png','300px')" class="shadow" />
+    <img id="P2.png" onclick="addDyrPicWithThis('P2.png','300px')" class="shadow" />
+    <img id="P3.png" onclick="addDyrPicWithThis('P3.png','300px')" class="shadow"/>
+    <script>
+        function getPicIfElse(){
+            let mynumber = Math.ceil(Math.random()*3);
+            console.log(mynumber)
+            if (mynumber === 1) {
+                return 'P1.png';
+            }
+            else if (mynumber === 2){
+                return 'P2.png';
+            }
+            else {
+                return 'P3.png';
+            }
+        }
+        function addDyrPicWithThis(elem) { /*sender inn html element*/
+            console.log(elem)
+            elem.src = 'P2.png'
+        }
+        function addDyrPicWithThis(pictureid, height) // sender med id (string) 
+        {
+            let picResult = getPicIfElse();
+            document.getElementById(pictureid).src = picResult;
+            document.getElementById(pictureid).style.height = height;
+        }
+    </script>
+
+    <style>
+        .shadow {
+
+            display: -moz-deck;
+            margin: 100px;
+            padding: 25px;
+            height: 160px;
+            width: 350px;
+            box-shadow: 11px 5px 17px;
+            color: rgb(0, 0, 0);
+            background-color: rgb(10, 9, 7)
+        } 
+    </style>
+</body>
+
+</html>
