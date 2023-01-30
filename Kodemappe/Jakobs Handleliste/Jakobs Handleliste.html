@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handleliste</title>
+    <style>
+        html {
+            background-color: rgb(144, 141, 138);
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        li button {
+            font-size: 12px;
+            margin-left: 25;
+            color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Team 4 sin handle liste</h1>
+    <div>
+        <label for="item"></label>Skriv ned en vare</label>
+        <input type="text" name="item" id="item">
+        <button>Legg til vare</button>
+
+        <ul>
+
+        </ul>
+    </div>
+
+    </button>
+    <script>
+        const list = document.querySelector('ul');
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+
+        button.onclick = function () {
+            let newItem = input.value;
+            input.value = '';
+
+            let itemList = document.createElement('li');
+            let itemText = document.createElement('span');
+            let itemBtn = document.createElement('button');
+            itemList.appendChild(itemText);
+            itemText.textContent = newItem;
+            itemList.appendChild(itemBtn);
+            itemBtn.textContent = 'Delete';
+            list.appendChild(itemList)
+            itemBtn.onclick = function () {
+                list.removeChild(itemList);
+            }
+            input.focus();
+        }
+    </script>
+</body>
+
+</html>

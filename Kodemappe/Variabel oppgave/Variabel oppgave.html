@@ -30,24 +30,25 @@
 <br>
 <button onclick="setBKGcolor()">Set Background</button>
 <br><br>
-<div onclick="selectDiv(this)">Select Me!</div>
-<div onclick="selectDiv(this)">...or me!</div>
+<div id="selectDiv" onclick="selectedDiv(this)">Select Me!</div>
+<div id ="selectDiv" onclick="selectedDiv(this)">...or me!</div>
 
 <script>
-    const chosenColorDiv = document.getElementById('choosenColorDiv');
+    const chosenColorDiv = document.getElementById('chosenColorDiv');
     let chosenColor = "";
-    let choosenDiv = document.getElementById('choosenColorDiv');
+    let choosenDiv = document.getElementById('chosenColorDiv');
 
     function chooseColor(chosenHEX){
+        console.log(chosenHEX);
         chosenColor = chosenHEX;
-        chosenColorDiv.innerHTML = `Du har valgt fargekode: ${choosenHEX}`;
+        chosenColorDiv.innerHTML = `Du har valgt fargekode: ${chosenHEX}`;
         chosenColorDiv.style.backgroundColor = chosenHEX;
     }
-    function selectDiv(clickedDiv){
-        choosenDiv.classList.remove("selectedDiv");
+    function selectedDiv(clickedDiv){
+        choosenDiv.classList.remove("selectDiv");
         choosenDiv = clickedDiv;
-        choosenDiv.classList.toggle("selectedDiv");
-        ClickedDiv.style.backgroundColor = chosenColor;
+        choosenDiv.classList.toggle("selectDiv");
+        clickedDiv.style.backgroundColor = chosenColor;
     }
     function setBKGcolor(){
         document.body.style.backgroundColor = chosenColor;

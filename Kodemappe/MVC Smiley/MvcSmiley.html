@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // MODEL
+        let points = 0;
+        let pointsPerClick = 1;
+        let smileyIndex = 0;
+
+        // CONTROLLER
+        function doClick(){
+            points += pointsPerClick;
+            smileyIndex = 1 - smileyIndex;
+            updateView();
+        }
+
+        function buyUpgrade(){
+            if (points < 10) return;
+            points -= 10;
+            pointsPerClick++;
+            updateView();
+
+        }
+
+        //VIEW
+        updateView();
+        function updateView() {
+            let smiley = smileyIndex == 0 ? '😎' : '😁';
+            document.getElementById('app').innerHTML = ` 
+            <div id="image" onclick="doClick()">${smiley}</div>
+            <div id="pointsinfo">${points}</div>
+            <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+            `;
+        }
+
+    </script>
+</body>
+
+</html>
