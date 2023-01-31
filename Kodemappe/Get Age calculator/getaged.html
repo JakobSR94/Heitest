@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldersjekk!</title>
+    <h1>Aldersjekk</h1>
+</head>
+<style>
+    html {
+        background-color: rgb(100, 100, 100);
+        text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+        color: rgb(255, 255, 255);
+    }
+
+    h2 {
+        text-align: center;
+        color: rgb(255, 255, 255);
+
+    }
+</style>
+<div id="app"> </div>
+<h2> Skriv inn året du ble født!</h2>
+
+<input id="age" type="number">
+<button onclick="generer();" input>Vil du virkelig vite det?</button>
+<div id="printeut"></div>
+
+<script>
+    let birthYear = 1990;
+    let futureyear = 2023;
+
+    function generer() {
+        let age;
+        birthYear = document.getElementById("age").value
+        age = futureyear - birthYear;
+        console.log("Oppdaterer verdien til birthyear " + birthYear);
+        document.getElementById("printeut").innerHTML = age
+    }
+</script>
+
+<body>
+</body>
+
+</html>
