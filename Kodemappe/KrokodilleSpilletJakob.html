@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KrokodilleSpillet</title>
+  <style>
+    html{
+      background-color: rgb(106, 180, 28);
+    }
+  </style>
+
+</head>
+<body>
+  <img src="krokodille.png" height="250">
+  <div id="app"></div>
+
+  <script>
+    let firstNum = 0;
+    let secondNum = 0;
+    let poeng = 0
+
+    updateView()
+    function updateView() {
+      document.getElementById('app').innerHTML = /*HTML*/`
+            <h2 class="header">Krokodille spillet!</h2>
+            <h4>Hvilket tall er størst? <br>  
+             Symboler som er tilatt > < =</h4>
+            <h3><div class="game plus">Poeng: ${poeng}</div></h3> <br>
+            <div class="game">
+                <div>${firstNum}</div>
+                <input type="text" id="inputbox">
+                <div>${secondNum}</div>
+            </div>
+            <br>
+            <button onclick="Enter()">Svar </button>
+            <br> <br>
+            <button onclick="Reset()">Starte på nytt    </button>
+            </div>
+            `;
+      reset()
+    }
+
+    function Reset() {
+      poeng = 0;
+      updateNumbers();
+      updateView()
+    }
+
+    function reset() {
+      updateNumbers();
+      updateView();
+    }
+
+    function updateNumbers() {
+      firstNum = getRandomNumber();
+      secondNum = getRandomNumber();
+    }
+
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 10);
+    }
+
+    function Enter() {
+      let inputy = document.getElementById('inputbox').value;
+      if (inputy == "<") {
+        if (firstNum < secondNum) {
+          poeng++;
+        } else {
+          poeng--;
+        }
+      } else if (inputy == ">") {
+        if (firstNum > secondNum) {
+          poeng++;
+        } else {
+          poeng--;
+        }
+      } else if (inputy == "=") {
+        if (firstNum == secondNum) {
+          poeng++;
+        } else {
+          poeng--;
+        }
+      } else if (inputy == "") {
+        alert("Ingen tegn!")
+      }
+      else {
+        alert("Feil tegn!")
+      }
+      clear()
+      updateView()
+    }
+
+    function clear() {
+      let getValue = document.getElementById('inputbox');
+      if (getValue.value != "") {
+        getValue.value = "";
+      }
+    }
+  </script>
+</body>
+
+</html>
